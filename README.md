@@ -1,5 +1,5 @@
 # kazishop
-
+This is an e-commerce app build with vue js and django.
 
 This template should help get you started developing with Vue 3 in Vite.
 

@@ -11,9 +11,13 @@
     "@fortawesome/fontawesome-free": "^6.4.0",
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
+    "bulma-toast": "^2.4.2",
     "postcss": "^8.4.24",
+    "sweetalert2": "^11.7.10",
+    "toastr": "^2.1.4",
     "vue": "^3.3.2",
-    "vue-router": "^4.2.0"
+    "vue-router": "^4.2.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

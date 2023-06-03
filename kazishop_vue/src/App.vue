@@ -1,6 +1,6 @@
 <template>
   <!-- <RouterView /> -->
-<main class = "min-h-screen">
+<main class = "flex flex-col min-h-screen">
     <!-- Navigation Section Start -->
     <section id="navbar">
       <nav
@@ -61,28 +61,33 @@
           <li class="text-sm font-bold text-gray-300 md:text-gray-800">          
             <router-link to="/winter"> Winter </router-link>
           </li>
-          <li class="text-sm w-12 h-6 font-bold flex items-center justify-center md:rounded md:bg-white text-gray-300 md:text-gray-800 md:hover:text-gray-600 hover:text-sky-800">
+          <li class="text-sm w-16 h-8 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
             <router-link to="">Log in</router-link>
           </li>
 
-          <li class="text-sm font-bold text-gray-300 md:text-gray-800  ">
-            <router-link to=""> Cart </router-link>
+          <li class="text-sm w-16 h-8 md:h-8 md:w-16 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
+            <router-link to="">Cart ({{ cartTotalLength }})</router-link>
           </li>
         </ul>
       </nav>
     </section>
     <!-- Navigation Section End -->
 
-  <section class="section">
+  <section class="flex-grow">
     <router-view/>
     <!-- <RouterView/> -->
   </section>
 
-  <footer class="footer">
-    <p class="text-center">Copyright (c) 2023</p>
-  </footer>
 
-
+    <!-- Footer Section Start -->
+    <footer class="footer bg-gray-200 py-4 mt-auto">
+      <div class="container mx-auto text-center">
+        <p class="text-gray-500 text-sm">
+          &copy; 2023 Kazishop. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
 </main>
 
 </template>
@@ -90,13 +95,40 @@
 
 <script>
 import axios from 'axios'
-import { RouterLink, RouterView } from 'vue-router'
 
 export default {
   data() {
     return {
       showMenu: false,
-    };
+      cart: {
+        items: []
+      }
+    }
   },
-};
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+
+    const token = this.$store.state.token
+
+    if (token) {
+        axios.defaults.headers.common['Authorization'] = "Token " + token
+    } else {
+        axios.defaults.headers.common['Authorization'] = ""
+    }
+  },
+  mounted() {
+    this.cart = this.$store.state.cart
+  },
+  computed: {
+      cartTotalLength() {
+          let totalLength = 0
+
+          for (let i = 0; i < this.cart.items.length; i++) {
+              totalLength += this.cart.items[i].quantity
+          }
+
+          return totalLength
+      }
+  }
+}
 </script>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import summer from "../views/summer.vue"
 import winter from "../views/winter.vue"
+import Product from "../views/Product.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,6 +20,12 @@ const router = createRouter({
       path: '/winter',
       name: 'winter',
       component: winter
+    },
+
+    {
+      path: '/:category_slug/:product_slug',
+      name: 'Product',
+      component: Product
     },
     // {
     //   path: '/about',

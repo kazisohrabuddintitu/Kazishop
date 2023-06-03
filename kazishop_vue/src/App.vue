@@ -74,8 +74,8 @@
     <!-- Navigation Section End -->
 
   <section class="section">
-    <!-- <router-view/> -->
-    <RouterView/>
+    <router-view/>
+    <!-- <RouterView/> -->
   </section>
 
   <footer class="footer">

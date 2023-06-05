@@ -3,21 +3,34 @@
 <main class = "flex flex-col min-h-screen">
     <!-- Navigation Section Start -->
     <section id="navbar">
-      <nav
-        class="
-          md:flex md:justify-between md:items-center
-          bg-gradient-to-r from-slate-800 to-slate-400 px-2 sm:px-4 py-2.5
-        "
-      >
-        <div class="flex items-center justify-between">
-          <h1 class="
-              text-sm 
-              text-white
-              md:text-base
-        
-            "
-            > <router-link to='/'>Kazishop</router-link> 
-          </h1>
+  <nav
+    class="
+      md:flex md:justify-between md:items-center
+      bg-gradient-to-r from-slate-800 to-slate-400 px-2 sm:px-4 py-2.5
+    "
+  >
+    <div class="flex items-center justify-start"> <!-- Modified: justify-between to justify-start -->
+      <h1 class="
+        text-sm 
+        text-white
+        md:text-base
+      "
+      ><router-link to="/">Kazishop</router-link></h1>
+      <!-- Search bar -->
+          <div class="ml-4"> <!-- Added: ml-4 for left margin -->
+            <form method="get" action="/search">
+              <input
+              type="text"
+              class=" input
+                px-3 py-1.5 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-lime-600
+                text-sm text-gray-800
+              "
+              placeholder="What are you looking for?" name="query"
+              />
+            </form>
+            
+          </div>
+        </div>
           <!-- Mobile menu button -->
           <div @click="showMenu = !showMenu" class="flex md:hidden">
             <button
@@ -36,8 +49,6 @@
               </svg>
             </button>
           </div>
-        </div>
-
 
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <ul
@@ -73,10 +84,10 @@
     </section>
     <!-- Navigation Section End -->
 
-  <section class="flex-grow">
-    <router-view/>
-    <!-- <RouterView/> -->
-  </section>
+    <section class="flex-grow">
+      <router-view/>
+      <!-- <RouterView/> -->
+    </section>
 
 
     <!-- Footer Section Start -->
@@ -102,7 +113,7 @@ export default {
       showMenu: false,
       cart: {
         items: []
-      }
+      },
     }
   },
   beforeCreate() {
@@ -128,7 +139,8 @@ export default {
           }
 
           return totalLength
-      }
+      },
+      
   }
 }
 </script>

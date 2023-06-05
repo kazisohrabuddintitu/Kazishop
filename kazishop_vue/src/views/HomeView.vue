@@ -38,6 +38,7 @@ export default {
   },
   mounted() {
     this.getLatestProducts()
+    document.title = 'Home | Kazishop'
   },
   methods: {
     getLatestProducts() {

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import summer from "../views/summer.vue"
-import winter from "../views/winter.vue"
+import Category from "../views/Category.vue"
 import Product from "../views/Product.vue"
+import Search from "../views/Search.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -12,16 +12,15 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/summer',
-      name: 'summer',
-      component: summer
+      path: '/:category_slug',
+      name: 'Category',
+      component: Category
     },
     {
-      path: '/winter',
-      name: 'winter',
-      component: winter
+      path: '/search',
+      name: 'search',
+      component: Search
     },
-
     {
       path: '/:category_slug/:product_slug',
       name: 'Product',

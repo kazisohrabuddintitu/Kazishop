@@ -9,47 +9,36 @@
       bg-gradient-to-r from-slate-800 to-slate-400 px-2 sm:px-4 py-2.5
     "
   >
-    <div class="flex items-center justify-start"> <!-- Modified: justify-between to justify-start -->
-      <h1 class="
-        text-sm 
-        text-white
-        md:text-base
-      "
-      ><router-link to="/">Kazishop</router-link></h1>
-      <!-- Search bar -->
-          <div class="ml-4"> <!-- Added: ml-4 for left margin -->
-            <form method="get" action="/search">
-              <input
-              type="text"
-              class=" input
-                px-3 py-1.5 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-lime-600
-                text-sm text-gray-800
-              "
-              placeholder="What are you looking for?" name="query"
-              />
-            </form>
-            
+          <div class="flex items-center justify-between"> 
+            <h1 class="text-sm text-white md:text-base">
+              <router-link to="/">Kazishop</router-link>
+            </h1>
+            <!-- Search bar -->
+            <div class="flex items-center pl-2"> 
+              <form method="get" action="/search">
+                <input
+                  type="text"
+                  class="input py-1.5 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-lime-600 text-sm text-gray-800"
+                  placeholder="What are you looking for?"
+                  name="query"
+                />
+              </form>
+            </div>
+            <!-- Mobile menu button -->
+            <div @click="showMenu = !showMenu" class="flex md:hidden">
+              <button
+                type="button"
+                class="text-white focus:outline-none focus:text-gray-400"
+              >
+                <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
-          <!-- Mobile menu button -->
-          <div @click="showMenu = !showMenu" class="flex md:hidden">
-            <button
-              type="button"
-              class="
-                text-gray-800
-                hover:text-gray-600
-                focus:outline-none focus:text-gray-400
-              "
-            >
-              <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                <path
-                  fill-rule="evenodd"
-                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <ul
           :class="showMenu ? 'flex' : 'hidden'"
@@ -77,7 +66,7 @@
           </li>
 
           <li class="text-sm w-16 h-8 md:h-8 md:w-16 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
-            <router-link to="">Cart ({{ cartTotalLength }})</router-link>
+            <router-link to="/cart">Cart ({{ cartTotalLength }})</router-link>
           </li>
         </ul>
       </nav>

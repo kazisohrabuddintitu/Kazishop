@@ -61,9 +61,20 @@
           <li class="text-sm font-bold text-gray-300 md:text-gray-800">          
             <router-link to="/winter"> Winter </router-link>
           </li>
-          <li class="text-sm w-16 h-8 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
-            <router-link to="">Log in</router-link>
-          </li>
+          <div>
+            <template v-if="$store.state.isAuthenticated">
+              <li class="text-sm w-20 h-8 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
+                <router-link to="/my-account">My account</router-link>
+              </li>
+            </template>
+            <template v-else>
+              <li class="text-sm w-16 h-8 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
+                <router-link to="/log-in">Log in</router-link>
+              </li>
+            </template>
+              
+          </div>
+          
 
           <li class="text-sm w-16 h-8 md:h-8 md:w-16 font-bold flex items-center justify-center rounded bg-lime-600 md:bg-white text-gray-300 md:text-gray-800">
             <router-link to="/cart">Cart ({{ cartTotalLength }})</router-link>

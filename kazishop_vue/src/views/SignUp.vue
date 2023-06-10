@@ -39,7 +39,7 @@
 
 <script>
 import axios from 'axios'
-import { toast } from 'bulma-toast'
+import Swal from 'sweetalert2'
 
 export default {
     name: 'SignUp',
@@ -50,6 +50,9 @@ export default {
             password2: '',
             errors: []
         }
+    },
+    mounted(){
+        document.title = 'Sign up | Kazishop'
     },
     methods: {
         submitForm() {
@@ -76,14 +79,15 @@ export default {
                 axios
                     .post("/api/v1/users/", formData)
                     .then(response => {
-                        toast({
-                            message: 'Account created, please log in!',
-                            type: 'is-success',
-                            dismissible: true,
-                            pauseOnHover: true,
-                            duration: 2000,
-                            position: 'bottom-right',
-                        })
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Account Created',
+                        text: 'Account created, please log in!',
+                        position: 'bottom-end',
+                        timer: 2000,
+                        toast: true,
+                        showConfirmButton: false
+                    });
 
                         this.$router.push('/log-in')
                     })

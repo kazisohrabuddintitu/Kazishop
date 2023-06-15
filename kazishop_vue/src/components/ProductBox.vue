@@ -2,7 +2,7 @@
     
     <div class="md:w-64 mx-auto">
         <div class="bg-white rounded-lg shadow p-4">
-            <figure class="">
+            <figure class="md:h-64">
             <img :src="product.get_thumbnail" class="mb-4">
             </figure>
 

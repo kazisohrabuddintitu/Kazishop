@@ -12,7 +12,7 @@
             </div>
         </section>
 
-        <div class="grid md:grid-cols-4 gap-2">
+        <div class="grid md:grid-cols-4 gap-2 pt-5">
           <ProductBox 
           v-for="product in latestProducts"
           v-bind:key="product.id"

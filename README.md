@@ -1,7 +1,9 @@
 # kazishop
-This is an e-commerce app build with vue js and django.
+This is an e-commerce app build with vue js and django. You can add product to your cart and then can proceed cart to order. In the front end there was tailwind css for styling. Used django build in database sqlite3. 
 
-This template should help get you started developing with Vue 3 in Vite.
+# installation
+`requirements.txt` files requires to install to run the project. and also the IDE setup.
+
 
 ## Recommended IDE Setup
 
